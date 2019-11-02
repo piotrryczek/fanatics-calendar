@@ -96,6 +96,7 @@ function AddClub(props) {
       {clubsChoices.length > 0 && (
         <ScrollView
           keyboardShouldPersistTaps="always"
+          // keyboardDismissMode="on-drag"
         >
           <List>
             {clubsChoices.map(({ name, transliterationName = '', logo, _id: clubId}) => (

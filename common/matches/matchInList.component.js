@@ -87,6 +87,7 @@ const getMatchData = (props) => {
     isHomeClubReserve,
     isAwayClubReserve,
     locationNotSure,
+    attitudeEstimationLevel,
   }
 }
 
@@ -147,7 +148,7 @@ function MatchInList(props) {
             )}
             {distanceFromUser && (
               <View style={styles.distanceWrapper}>
-                <Text style={styles.distance}>{`${(locationNotSure || isHomeClubReserve) ? '~' : ''}${distanceFromUser} km`}</Text>
+                <Text style={styles.distance}>{`${locationNotSure ? '~' : ''}${distanceFromUser} km`}</Text>
               </View>
             )}
           </View>

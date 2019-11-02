@@ -26,6 +26,7 @@ function Match({ navigation }) {
     isHomeClubReserve,
     isAwayClubReserve,
     locationNotSure,
+    attitudeEstimationLevel,
   } = matchData;
 
   const goToHomeClub = useCallback(() => {
@@ -43,6 +44,8 @@ function Match({ navigation }) {
   const attitudeStyles = Object.assign({}, stylesAttitude.color, {
     backgroundColor: attitudeData.backgroundColor,
   });
+
+  const attitudeAdditionalInfo = attitudeEstimationLevel > 1 ? ' (prawdopodobnie)' : !attitudeEstimationLevel ? ' (prawdopodobnie neutralna)' : '';
 
   return (
     <Container>
@@ -159,7 +162,11 @@ function Match({ navigation }) {
             <View style={stylesAttitude.wrapper}>
               <View style={attitudeStyles}></View>
               <View style={stylesAttitude.labelWrapper}>
-                <Text style={stylesAttitude.labelText}>{attitudeData.labelExtended}</Text>
+                <Text style={stylesAttitude.labelText}>
+                  {attitudeData.labelExtended}
+                  {!!attitudeAdditionalInfo && (<Text style={stylesAttitude.labelAdditionalText}>{attitudeAdditionalInfo}</Text>)}
+                </Text>
+                
               </View>
             </View>
           </View>
@@ -345,6 +352,10 @@ const stylesAttitude = StyleSheet.create({
     fontSize: 16,
     flex: 1,
     flexWrap: 'wrap',
+  },
+  labelAdditionalText: {
+    fontSize: 12,
+    color: '#a3a3a3'
   }
 });
 

@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
+  aroundLocation: null,
   errorMessage: '',
   clubs: [],
 };
@@ -25,6 +26,13 @@ const appReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         clubs: payload,
+      }
+    }
+
+    case 'SET_AROUND_LOCATION': {
+      return {
+        ...state,
+        aroundLocation: payload,
       }
     }
 

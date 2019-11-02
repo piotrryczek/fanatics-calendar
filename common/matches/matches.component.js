@@ -66,6 +66,7 @@ const extractFromItem = ({
   location, // cordinates
   date,
   league,
+  locationNotSure,
 }) => ({
   attitude,
   attitudeEstimationLevel,
@@ -82,7 +83,8 @@ const extractFromItem = ({
   unimportantAwayClubName,
   leagueName: _get(league, 'name', null),
   coordinates: _get(location, 'coordinates', null),
-  date
+  date,
+  locationNotSure
 });
 
 const mergeWithDefaultParams = (params) => {
@@ -124,7 +126,7 @@ const getDateFilterForName = (filterName) => {
     case '7days':
       return {
         dateFrom: Date.now() - MATCH_DURATION, // - 120 minutes
-        dateTo: Date.now() + DAYS_IN_ADVANCE, // + 7 days
+        dateTo: +moment(Date.now() + DAYS_IN_ADVANCE).endOf('day').format('x'), // + 7 days (end of day)
       };
     case 'today':
       return {
@@ -279,7 +281,7 @@ function Matches({ screenProps, navigation }) {
         animated: true,
       });
     });
-  }, [buttonsRefs, footerScrollViewRef])
+  }, [buttonsRefs, footerScrollViewRef]);
 
   return (
     <>

@@ -13,6 +13,7 @@ import About from '../components/about/about.component';
 import YourClubs from '../components/yourClubs/yourClubs.component';
 import ManageClubs from 'root/components/manageClubs/manageClubs.component.js';
 import AddClub from 'root/components/addClub/addClub.component.js';
+import AroundLocation from 'root/components/aroundLocation/aroundLocation.component.js';
 
 const iconStyles = {
   width: 30,
@@ -92,6 +93,12 @@ const RootStack = createDrawerNavigator({
   },
   AddClub: {
     screen: AddClub,
+    navigationOptions: {
+      drawerLabel: () => (null),
+    }
+  },
+  AroundLocation: {
+    screen: AroundLocation,
     navigationOptions: {
       drawerLabel: () => (null),
     }

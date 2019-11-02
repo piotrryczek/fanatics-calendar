@@ -5,7 +5,7 @@ export const ATTITUDE_DATA_UNKNOWN = {
   color: 'black',
   backgroundColor: '#f5f5f5',
   label: 'nieznane',
-  labelExtended: 'Nie udało się ustalić relacji pomiędzy kibicami'
+  labelExtended: 'Nie udało sie ustalić relacji'
 };
 export const ATTITUDE_DATA = [{
   from: 0,
@@ -23,25 +23,46 @@ export const ATTITUDE_DATA = [{
   labelExtended: 'Kibice są we wrogich relacjach'
 }, {
   from: 30,
-  to: 43,
+  to: 42,
   color: 'black',
   backgroundColor: '#b57f14',
   label: 'antypatia',
+  labelExtended: 'Kibice nie lubią się'
+}, {
+  from: 42,
+  to: 47,
+  color: 'black',
+  backgroundColor: '#edb442',
+  label: 'delikatna antypatia',
   labelExtended: 'Kibice nie przepadają za sobą'
 }, { // Neutral
-  from: 43,
-  to: 57,
+  from: 47,
+  to: 53,
   color: 'black',
   backgroundColor: '#c4c1bb',
   label: 'neutralne',
   labelExtended: 'Między kibicami panują neutralne relacje'
 }, {
-  from: 57,
-  to: 80,
+  from: 53,
+  to: 58,
   color: 'black',
   backgroundColor: '#dff0b1',
+  label: 'delikatna sympatia',
+  labelExtended: 'Kibice darzą się delikatną sympatią'
+}, {
+  from: 58,
+  to: 66,
+  color: 'black',
+  backgroundColor: '#a7c25d',
   label: 'sympatia',
   labelExtended: 'Kibice darzą się sympatią'
+}, {
+  from: 66,
+  to: 80,
+  color: 'black',
+  backgroundColor: '#7f9937',
+  label: 'dobre relacje',
+  labelExtended: 'Kibice są w dobrych relacjach'
 }, {
   from: 80,
   to: 95,
